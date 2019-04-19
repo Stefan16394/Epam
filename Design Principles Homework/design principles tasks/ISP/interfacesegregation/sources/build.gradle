@@ -1,0 +1,6 @@
+description = 'Task implementation'
+apply plugin: 'java'
+
+dependencies {
+    compile project(':thirdpartyjars')
+}

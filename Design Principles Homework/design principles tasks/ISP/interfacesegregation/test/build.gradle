@@ -1,0 +1,7 @@
+description = 'Testing module'
+apply plugin: 'java'
+
+dependencies {
+    compile project(':sources')
+    testCompile 'junit:junit:4.12'
+}
