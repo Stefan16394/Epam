@@ -69,9 +69,4 @@ public class DeckImpl implements Deck{
         cards.set(firstIndex, cards.get(secondIndex));
         cards.set(secondIndex, temp);
     }
-
-    public static void main(String[] args) {
-        DeckImpl deck = new DeckImpl();
-        deck.cutDeck();
-    }
 }
