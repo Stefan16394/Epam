@@ -76,6 +76,21 @@ public class PlayerTests {
     }
 
     @Test
+    public void declareBonusWithTwoQuadsPresentShouldReturnTwoBonuses(){
+        player.addCard(new Card(CardType.ACE,CardSuit.CLUBS));
+        player.addCard(new Card(CardType.ACE,CardSuit.DIAMONDS));
+        player.addCard(new Card(CardType.ACE,CardSuit.SPADES));
+        player.addCard(new Card(CardType.ACE,CardSuit.HEARTS));
+        player.addCard(new Card(CardType.QUEEN,CardSuit.CLUBS));
+        player.addCard(new Card(CardType.QUEEN,CardSuit.DIAMONDS));
+        player.addCard(new Card(CardType.QUEEN,CardSuit.SPADES));
+        player.addCard(new Card(CardType.QUEEN,CardSuit.HEARTS));
+
+        Set<Bonus> bonuses = player.declareBonus();
+        Assertions.assertEquals(2,bonuses.size());
+    }
+
+    @Test
     public void declareBonusForNoSequenceShouldReturnEmpty(){
         player.addCard(new Card(CardType.SEVEN,CardSuit.CLUBS));
         player.addCard(new Card(CardType.EIGHT,CardSuit.DIAMONDS));
