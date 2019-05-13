@@ -112,6 +112,19 @@ public class PlayerTests {
     }
 
     @Test
+    public void declareBonusForTwoSuitSequencesShouldReturnTwoBonuses(){
+        player.addCard(new Card(CardType.SEVEN,CardSuit.CLUBS));
+        player.addCard(new Card(CardType.EIGHT,CardSuit.CLUBS));
+        player.addCard(new Card(CardType.NINE,CardSuit.CLUBS));
+        player.addCard(new Card(CardType.TEN,CardSuit.DIAMONDS));
+        player.addCard(new Card(CardType.JACK,CardSuit.DIAMONDS));
+        player.addCard(new Card(CardType.QUEEN,CardSuit.DIAMONDS));
+
+        Set<Bonus> bonuses = player.declareBonus();
+        Assertions.assertEquals(2, bonuses.size());
+    }
+
+    @Test
     public void playerShouldPlayFirstCard() {
         Player player = new PlayerImpl(new Team());
         Card expected = new Card(CardType.TEN, CardSuit.DIAMONDS);
