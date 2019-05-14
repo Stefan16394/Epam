@@ -99,13 +99,6 @@ public class PlayerImpl implements Player {
         return this.team;
     }
 
-    public void printHand() {
-        for (Card c : hand) {
-            System.out.print(c + " ");
-        }
-        System.out.println("-----------");
-    }
-
     public void addCard(Card card) {
         this.hand.add(card);
     }
