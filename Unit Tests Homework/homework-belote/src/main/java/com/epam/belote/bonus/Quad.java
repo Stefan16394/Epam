@@ -30,6 +30,5 @@ public class Quad implements Bonus {
         // returns 200 when the player has 4 Jacks
         // returns 150 when the player has 4 nines
         // returns 100 when the player has 4 tens, queens, kings or aces
-        // throw new UnsupportedOperationException("TODO: Implement");
     }
 }

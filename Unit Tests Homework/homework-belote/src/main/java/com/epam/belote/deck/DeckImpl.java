@@ -36,13 +36,6 @@ public class DeckImpl implements Deck{
     }
 
     @Override
-    public void printDeck() {
-        for (Card c : cards) {
-            System.out.println(c);
-        }
-    }
-
-    @Override
     public Card dealCard(){
         return this.cards.remove(0);
     }
