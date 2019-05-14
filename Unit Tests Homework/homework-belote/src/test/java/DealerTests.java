@@ -1,12 +1,17 @@
 import com.epam.belote.CardDealer;
 import com.epam.belote.Dealer;
 import com.epam.belote.Team;
+import com.epam.belote.cards.Card;
 import com.epam.belote.deck.Deck;
 import com.epam.belote.deck.DeckImpl;
 import com.epam.belote.player.PlayerImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.invocation.InvocationOnMock;
+import org.mockito.stubbing.Answer;
 
 public class DealerTests {
     private CardDealer cardDealer;

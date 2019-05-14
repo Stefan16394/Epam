@@ -81,7 +81,6 @@ public class PlayerImpl implements Player {
                 .forEach(card -> {
                     if (card.getValue() == 4) {
                         bonuses.add(new Quad(card.getKey()));
-                        System.out.println("QUAD FOUND!");
                     }
                 });
     }

@@ -140,6 +140,21 @@ public class PlayerTests {
     }
 
     @Test
+    public void declareBonusForBothSequenceAndQuadShouldReturnBothBonuses(){
+        player.addCard(new Card(CardType.ACE,CardSuit.DIAMONDS));
+        player.addCard(new Card(CardType.NINE,CardSuit.HEARTS));
+        player.addCard(new Card(CardType.TEN,CardSuit.HEARTS));
+        player.addCard(new Card(CardType.JACK,CardSuit.HEARTS));
+
+        player.addCard(new Card(CardType.JACK,CardSuit.SPADES));
+        player.addCard(new Card(CardType.JACK,CardSuit.DIAMONDS));
+        player.addCard(new Card(CardType.JACK,CardSuit.CLUBS));
+
+        Set<Bonus> bonuses = player.declareBonus();
+        Assertions.assertEquals(2, bonuses.size());
+    }
+
+    @Test
     public void playerShouldPlayFirstCard() {
         Player player = new PlayerImpl(new Team());
         Card expected = new Card(CardType.TEN, CardSuit.DIAMONDS);
