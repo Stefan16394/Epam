@@ -22,6 +22,12 @@ public class Card {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        Card card = (Card) obj;
+        return this.type.equals(card.type) && this.suit.equals(card.suit);
+    }
+
+    @Override
     public String toString() {
         return this.type + " " + this.suit;
     }

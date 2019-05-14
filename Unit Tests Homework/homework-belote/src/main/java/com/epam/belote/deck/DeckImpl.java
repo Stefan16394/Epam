@@ -45,6 +45,11 @@ public class DeckImpl implements Deck{
         return cards.size();
     }
 
+    @Override
+    public List<Card> getCards() {
+        return Collections.unmodifiableList(this.cards);
+    }
+
     private void shuffleDeck() {
         for (int i = 0; i < 1000; i++) {
             int firstIndex = generateRandomIndex(0, cards.size());

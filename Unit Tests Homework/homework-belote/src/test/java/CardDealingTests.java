@@ -13,7 +13,7 @@ import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
 
-public class DealerTests {
+public class CardDealingTests {
     private CardDealer cardDealer;
     private Deck deck;
 
@@ -35,5 +35,17 @@ public class DealerTests {
         int expected = deck.getNumberOfCards() - 3;
         cardDealer.deal3Cards(new PlayerImpl(new Team()));
         Assertions.assertEquals(expected, deck.getNumberOfCards());
+    }
+
+    @Test
+    public void generateDeck(){
+        Assertions.assertEquals(32, this.deck.getNumberOfCards());
+    }
+
+    @Test
+    public void deckDealOneCard(){
+        Card card = this.deck.dealCard();
+
+        Assertions.assertFalse(this.deck.getCards().contains(card));
     }
 }

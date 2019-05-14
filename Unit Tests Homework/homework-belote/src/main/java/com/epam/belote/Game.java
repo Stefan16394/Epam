@@ -1,10 +1,12 @@
 package com.epam.belote;
 
+import com.epam.belote.bonus.Bonus;
 import com.epam.belote.player.Bid;
 import com.epam.belote.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Game {
     private Bid currentBid = Bid.PASS;
@@ -34,7 +36,8 @@ public class Game {
 
     private void checkForBonuses() {
         for (Player player : players) {
-            player.declareBonus();
+            Set<Bonus> bonuses = player.declareBonus();
+            bonuses.forEach(bonus -> player.getTeam().increasePoints(bonus.getBonus()));
         }
     }
 
@@ -65,5 +68,4 @@ public class Game {
     public Bid getCurrentBid() {
         return this.currentBid;
     }
-
 }

@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="abef9376-0f2f-4d4e-841a-676963e3926b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/belote/player/PlayerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/belote/player/PlayerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DealerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DealerTests.java" afterDir="false" />
+    <list default="true" id="0c3b0c9b-256a-4132-b3ec-e8e6b889044c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/belote/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/belote/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/belote/cards/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/belote/cards/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/belote/deck/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/belote/deck/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epam/belote/deck/DeckImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epam/belote/deck/DeckImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DealerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CardDealingTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/GameTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/QuadBonusesTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/QuadBonusesTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epam/belote/player/PlayerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epam/belote/player/PlayerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/DealerTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/GameTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/GameTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/PlayerTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/PlayerTests.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -14,66 +24,26 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CoverageViewManager">
-    <option name="myElementSize" value="218" />
-  </component>
   <component name="DefaultGradleProjectSettings">
-    <option name="isMigrated" value="true" />
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
   </component>
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/cards/CardType.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/player/PlayerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-              <folding>
-                <element signature="e#185#186#0" expanded="true" />
-                <element signature="e#219#220#0" expanded="true" />
-                <element signature="e#251#252#0" expanded="true" />
-                <element signature="e#284#285#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="442">
+              <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/PlayerTests.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/Demo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="147" selection-start-line="147" selection-end-line="147" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#646#647#0" expanded="true" />
-                <element signature="e#702#703#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-780">
-              <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/GameTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/DealerTests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+            <state relative-caret-position="68">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -81,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1160">
-              <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+            <state relative-caret-position="134">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
                 <element signature="e#1619#1620#0" expanded="true" />
                 <element signature="e#1657#1658#0" expanded="true" />
@@ -92,43 +62,68 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/deck/Deck.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/Team.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/CardDealer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/player/PlayerImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/GameTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
+            <state relative-caret-position="334">
+              <caret line="110" column="35" selection-start-line="110" selection-start-column="35" selection-end-line="110" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/bonus/Sequence.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/PlayerTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="173" column="5" lean-forward="true" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
               <folding>
-                <element signature="e#3288#3289#0" expanded="true" />
-                <element signature="e#3320#3321#0" expanded="true" />
-                <element signature="e#3517#3518#0" expanded="true" />
-                <element signature="e#3552#3553#0" expanded="true" />
+                <element signature="e#646#647#0" expanded="true" />
+                <element signature="e#702#703#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/player/Player.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/QuadBonusesTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+            <state relative-caret-position="272">
+              <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/SequenceBonusesTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/bonus/Quad.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -141,20 +136,24 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/epam/belote/bonus/Quad.java" />
+        <option value="$PROJECT_DIR$/src/test/java/QuadBonusesTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/DealerTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/belote/deck/Deck.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/belote/deck/DeckImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/java/DealerTests.java" />
-        <option value="$PROJECT_DIR$/src/test/java/PlayerTests.java" />
+        <option value="$PROJECT_DIR$/src/test/java/CardDealingTests.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epam/belote/player/PlayerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/belote/cards/Card.java" />
+        <option value="$PROJECT_DIR$/src/test/java/PlayerTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/belote/Game.java" />
+        <option value="$PROJECT_DIR$/src/test/java/GameTests.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
+    <option name="x" value="10" />
     <option name="y" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -162,7 +161,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -250,11 +248,12 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../UnitTesting-master/UnitTesting-master" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -268,76 +267,62 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.PlayerTests.declareBonusForBothSequenceAndQuadShouldReturnBothBonuses">
-    <configuration name="Demo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.epam.belote.Demo" />
-      <module name="pro" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.epam.belote.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.All in pro">
     <configuration name="All in pro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
-      <extension name="coverage" runner="jacoco" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
-      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTests.declareBonusForBothSequenceAndQuadShouldReturnBothBonuses" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CardDealingTests.deckDealOneCard" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerTests" />
-      <option name="METHOD_NAME" value="declareBonusForBothSequenceAndQuadShouldReturnBothBonuses" />
+      <option name="MAIN_CLASS_NAME" value="CardDealingTests" />
+      <option name="METHOD_NAME" value="deckDealOneCard" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTests.declareBonusForTwoSuitSequencesShouldReturnTwoBonuses" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameTests.bonusesShouldAddToPlayerTeamScore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerTests" />
-      <option name="METHOD_NAME" value="declareBonusForTwoSuitSequencesShouldReturnTwoBonuses" />
+      <option name="MAIN_CLASS_NAME" value="GameTests" />
+      <option name="METHOD_NAME" value="bonusesShouldAddToPlayerTeamScore" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTests.declareBonusWithTwoQuadsPresentShouldReturnTwoBonuses" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GameTests.bothPlayersShouldContributeToTeamScore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="pro" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerTests" />
-      <option name="METHOD_NAME" value="declareBonusWithTwoQuadsPresentShouldReturnTwoBonuses" />
+      <option name="MAIN_CLASS_NAME" value="GameTests" />
+      <option name="METHOD_NAME" value="bothPlayersShouldContributeToTeamScore" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <list>
-      <item itemvalue="JUnit.All in pro" />
-      <item itemvalue="JUnit.PlayerTests.declareBonusForTwoSuitSequencesShouldReturnTwoBonuses" />
-      <item itemvalue="JUnit.PlayerTests.declareBonusWithTwoQuadsPresentShouldReturnTwoBonuses" />
-      <item itemvalue="Application.Demo" />
-      <item itemvalue="JUnit.PlayerTests.declareBonusForBothSequenceAndQuadShouldReturnBothBonuses" />
-    </list>
+    <configuration name="PlayerTests.declareBonusWithQuadOfNinesShouldCreateBonus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="pro" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PlayerTests" />
+      <option name="METHOD_NAME" value="declareBonusWithQuadOfNinesShouldCreateBonus" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PlayerTests.declareBonusForBothSequenceAndQuadShouldReturnBothBonuses" />
-        <item itemvalue="Application.Demo" />
         <item itemvalue="JUnit.All in pro" />
-        <item itemvalue="JUnit.PlayerTests.declareBonusWithTwoQuadsPresentShouldReturnTwoBonuses" />
-        <item itemvalue="JUnit.PlayerTests.declareBonusForTwoSuitSequencesShouldReturnTwoBonuses" />
+        <item itemvalue="JUnit.GameTests.bothPlayersShouldContributeToTeamScore" />
+        <item itemvalue="JUnit.GameTests.bonusesShouldAddToPlayerTeamScore" />
+        <item itemvalue="JUnit.PlayerTests.declareBonusWithQuadOfNinesShouldCreateBonus" />
+        <item itemvalue="JUnit.CardDealingTests.deckDealOneCard" />
       </list>
     </recent_temporary>
   </component>
@@ -346,48 +331,48 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="abef9376-0f2f-4d4e-841a-676963e3926b" name="Default Changelist" comment="" />
-      <created>1557727809031</created>
+      <changelist id="0c3b0c9b-256a-4132-b3ec-e8e6b889044c" name="Default Changelist" comment="" />
+      <created>1557854910206</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1557727809031</updated>
+      <updated>1557854910206</updated>
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_pro - 2019.05.13 at 09h 26m 00s.xml">
+    <history-entry file="All_in_pro - 2019.05.14 at 21h 02m 53s.xml">
       <configuration name="All in pro" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_pro - 2019.05.13 at 16h 06m 53s.xml">
+    <history-entry file="All_in_pro - 2019.05.14 at 21h 04m 52s.xml">
       <configuration name="All in pro" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_pro - 2019.05.13 at 16h 07m 00s.xml">
+    <history-entry file="All_in_pro - 2019.05.14 at 21h 08m 32s.xml">
       <configuration name="All in pro" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_pro - 2019.05.13 at 16h 08m 00s.xml">
-      <configuration name="All in pro" configurationId="JUnit" />
+    <history-entry file="PlayerTests_declareBonusWithQuadOfNinesShouldCreateBonus - 2019.05.14 at 21h 14m 27s.xml">
+      <configuration name="PlayerTests.declareBonusWithQuadOfNinesShouldCreateBonus" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_pro - 2019.05.14 at 13h 57m 21s.xml">
-      <configuration name="All in pro" configurationId="JUnit" />
+    <history-entry file="PlayerTests_declareBonusWithQuadOfNinesShouldCreateBonus - 2019.05.14 at 21h 14m 43s.xml">
+      <configuration name="PlayerTests.declareBonusWithQuadOfNinesShouldCreateBonus" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PlayerTests_declareBonusForBothSequenceAndQuadShouldReturnBothBonuses - 2019.05.14 at 14h 58m 15s.xml">
-      <configuration name="PlayerTests.declareBonusForBothSequenceAndQuadShouldReturnBothBonuses" configurationId="JUnit" />
+    <history-entry file="GameTests_bonusesShouldAddToPlayerTeamScore - 2019.05.14 at 21h 27m 33s.xml">
+      <configuration name="GameTests.bonusesShouldAddToPlayerTeamScore" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PlayerTests_declareBonusForBothSequenceAndQuadShouldReturnBothBonuses - 2019.05.14 at 14h 58m 23s.xml">
-      <configuration name="PlayerTests.declareBonusForBothSequenceAndQuadShouldReturnBothBonuses" configurationId="JUnit" />
+    <history-entry file="GameTests_bonusesShouldAddToPlayerTeamScore - 2019.05.14 at 21h 29m 25s.xml">
+      <configuration name="GameTests.bonusesShouldAddToPlayerTeamScore" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PlayerTests_declareBonusForBothSequenceAndQuadShouldReturnBothBonuses - 2019.05.14 at 14h 59m 00s.xml">
-      <configuration name="PlayerTests.declareBonusForBothSequenceAndQuadShouldReturnBothBonuses" configurationId="JUnit" />
+    <history-entry file="GameTests_bonusesShouldAddToPlayerTeamScore - 2019.05.14 at 21h 30m 23s.xml">
+      <configuration name="GameTests.bonusesShouldAddToPlayerTeamScore" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PlayerTests_declareBonusForBothSequenceAndQuadShouldReturnBothBonuses - 2019.05.14 at 14h 59m 22s.xml">
-      <configuration name="PlayerTests.declareBonusForBothSequenceAndQuadShouldReturnBothBonuses" configurationId="JUnit" />
+    <history-entry file="GameTests_bothPlayersShouldContributeToTeamScore - 2019.05.14 at 21h 31m 03s.xml">
+      <configuration name="GameTests.bothPlayersShouldContributeToTeamScore" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="PlayerTests_declareBonusForBothSequenceAndQuadShouldReturnBothBonuses - 2019.05.14 at 14h 59m 59s.xml">
-      <configuration name="PlayerTests.declareBonusForBothSequenceAndQuadShouldReturnBothBonuses" configurationId="JUnit" />
+    <history-entry file="GameTests_bothPlayersShouldContributeToTeamScore - 2019.05.14 at 21h 31m 14s.xml">
+      <configuration name="GameTests.bothPlayersShouldContributeToTeamScore" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
@@ -395,7 +380,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24962178" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Terminal" />
@@ -403,7 +388,7 @@
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.25859246" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -413,125 +398,92 @@
       <window_info anchor="right" id="Maven" />
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.32995737" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/PlayerTests.java</url>
-          <line>142</line>
-          <properties class="PlayerTests" method="declareBonusForBothSequenceAndQuadShouldReturnBothBonuses">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pro$All_in_pro.exec" NAME="All in pro Coverage Results" MODIFIED="1557752878412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="jacoco" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/test/java/QuadBonusesTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/SequenceBonusesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/player/Bid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/bonus/Bonus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/bonus/Quad.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/bonus/Sequence.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/cards/CardComparator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#197#198#0" expanded="true" />
-            <element signature="e#267#268#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/cards/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/cards/CardSuit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
+        <state relative-caret-position="34">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/deck/Deck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/deck/DeckImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        <state relative-caret-position="572">
+          <caret line="49" column="56" selection-start-line="49" selection-start-column="56" selection-end-line="49" selection-end-column="56" />
+          <folding>
+            <element signature="e#282#283#0" expanded="true" />
+            <element signature="e#313#314#0" expanded="true" />
+            <element signature="e#1005#1006#0" expanded="true" />
+            <element signature="e#1048#1049#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+            <element signature="e#1134#1135#0" expanded="true" />
+            <element signature="e#1184#1185#0" expanded="true" />
+            <element signature="e#1236#1237#0" expanded="true" />
+            <element signature="e#1460#1461#0" expanded="true" />
+            <element signature="e#1514#1515#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/Team.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/player/Bid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="68">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/Demo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/player/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="-68">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/cards/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="26" column="74" selection-start-line="26" selection-start-column="74" selection-end-line="26" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/CardDealer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/CardDealingTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#1209#1210#0" expanded="true" />
+            <element signature="e#1282#1283#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/Dealer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
+        <state relative-caret-position="-28">
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
           <folding>
-            <element signature="e#231#232#0" expanded="true" />
-            <element signature="e#263#264#0" expanded="true" />
             <element signature="e#322#323#0" expanded="true" />
             <element signature="e#363#364#0" expanded="true" />
             <element signature="e#422#423#0" expanded="true" />
@@ -540,65 +492,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/CardDealer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/player/PlayerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        <state relative-caret-position="442">
+          <caret line="48" column="29" lean-forward="true" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/player/Player.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/PlayerTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/deck/Deck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/cards/CardType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="266">
+          <caret line="173" column="5" lean-forward="true" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
           <folding>
-            <element signature="e#185#186#0" expanded="true" />
-            <element signature="e#219#220#0" expanded="true" />
-            <element signature="e#251#252#0" expanded="true" />
-            <element signature="e#284#285#0" expanded="true" />
+            <element signature="e#646#647#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/Demo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-780">
-          <caret line="6" column="27" lean-forward="true" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/GameTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/DealerTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="37" column="5" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1160">
-          <caret line="62" column="5" lean-forward="true" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+        <state relative-caret-position="134">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
             <element signature="e#1619#1620#0" expanded="true" />
             <element signature="e#1657#1658#0" expanded="true" />
@@ -606,28 +528,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/PlayerTests.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/Team.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="147" selection-start-line="147" selection-end-line="147" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#646#647#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/player/PlayerImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/bonus/Sequence.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
-          <folding>
-            <element signature="e#3288#3289#0" expanded="true" />
-            <element signature="e#3320#3321#0" expanded="true" />
-            <element signature="e#3517#3518#0" expanded="true" />
-            <element signature="e#3552#3553#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/belote/bonus/Quad.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/QuadBonusesTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="27" column="6" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/SequenceBonusesTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/GameTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="110" column="35" selection-start-line="110" selection-start-column="35" selection-end-line="110" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -636,7 +575,7 @@
     <states>
       <state key="ProjectJDKs.UI">
         <settings>
-          <last-edited>12</last-edited>
+          <last-edited>1.8</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

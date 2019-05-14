@@ -57,8 +57,8 @@ public class PlayerTests {
     @Test
     public void declareBonusWithNoQuadPresentShouldReturnNoBonus(){
         player.addCard(new Card(CardType.ACE,CardSuit.CLUBS));
-        player.addCard(new Card(CardType.ACE,CardSuit.CLUBS));
-        player.addCard(new Card(CardType.ACE,CardSuit.CLUBS));
+        player.addCard(new Card(CardType.ACE,CardSuit.DIAMONDS));
+        player.addCard(new Card(CardType.ACE,CardSuit.SPADES));
         player.addCard(new Card(CardType.SEVEN,CardSuit.CLUBS));
         player.addCard(new Card(CardType.TEN,CardSuit.CLUBS));
 
