@@ -1,9 +1,12 @@
 import com.epam.belote.CardDealer;
 import com.epam.belote.Dealer;
+import com.epam.belote.Game;
 import com.epam.belote.Team;
 import com.epam.belote.cards.Card;
 import com.epam.belote.deck.Deck;
 import com.epam.belote.deck.DeckImpl;
+import com.epam.belote.player.Bid;
+import com.epam.belote.player.Player;
 import com.epam.belote.player.PlayerImpl;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,6 +15,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.invocation.InvocationOnMock;
 import org.mockito.stubbing.Answer;
+
+import java.util.Arrays;
 
 public class CardDealingTests {
     private CardDealer cardDealer;
@@ -38,12 +43,30 @@ public class CardDealingTests {
     }
 
     @Test
-    public void generateDeck(){
+    public void allNotPassShouldDealAllCardsInDeck() {
+        Player playerOne = Mockito.mock(Player.class);
+        Player playerTwo = Mockito.mock(Player.class);
+        Player playerThree = Mockito.mock(Player.class);
+        Player playerFour = Mockito.mock(Player.class);
+
+        Mockito.when(playerOne.bid()).thenReturn(Bid.PASS);
+        Mockito.when(playerTwo.bid()).thenReturn(Bid.DIAMONDS_TRUMP);
+        Mockito.when(playerThree.bid()).thenReturn(Bid.PASS);
+        Mockito.when(playerFour.bid()).thenReturn(Bid.ALL_TRUMPS);
+
+        Game game = new Game(Arrays.asList(playerOne, playerTwo,playerThree,playerFour), cardDealer);
+        game.startGame();
+
+        Assertions.assertEquals(0, deck.getNumberOfCards());
+    }
+
+    @Test
+    public void generateDeck() {
         Assertions.assertEquals(32, this.deck.getNumberOfCards());
     }
 
     @Test
-    public void deckDealOneCard(){
+    public void deckDealOneCard() {
         Card card = this.deck.dealCard();
 
         Assertions.assertFalse(this.deck.getCards().contains(card));
