@@ -1,0 +1,125 @@
+package com.vmzone.demo.service;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+
+import com.vmzone.demo.dto.AddReviewDTO;
+import com.vmzone.demo.dto.EditReviewDTO;
+import com.vmzone.demo.dto.ListReview;
+import com.vmzone.demo.exceptions.ResourceDoesntExistException;
+import com.vmzone.demo.models.Product;
+import com.vmzone.demo.models.Review;
+import com.vmzone.demo.repository.ProductRepository;
+import com.vmzone.demo.repository.ReviewRepository;
+import com.vmzone.demo.repository.UserRepository;
+/**
+ * Service layer communicating with review repository and user repository for managing review requests
+ * 
+ * @author Stefan Rangelov and Sabiha Djurina
+ *
+ */
+
+@Service
+public class ReviewService {
+
+	@Autowired
+	private ReviewRepository reviewRepository;
+
+	@Autowired
+	private UserRepository userRepository;
+
+	@Autowired
+	private ProductRepository productRepository;
+
+	public Review addReview(AddReviewDTO review, long id) throws ResourceDoesntExistException {
+		try {
+			Review newReview = new Review(this.productRepository.findById(review.getProductId()).get(),
+					this.userRepository.findById(id).get(), review.getReview(), review.getRating());
+			Review rev = this.reviewRepository.save(newReview);
+			calculateRating(review.getProductId());
+			return rev;
+		} catch (NoSuchElementException e) {
+			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Invalid product or user");
+		}
+	}
+
+	public void removeReviewById(long id, long userId) throws ResourceDoesntExistException {
+		Review review = this.reviewRepository.findByUserUserIdAndReviewIdAndIsDeletedIsFalse(userId, id);
+		if (review == null) {
+			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Review doesn't exist or it is not your review");
+		}
+		review.setDeleted(true);
+		this.reviewRepository.save(review);
+	}
+	
+	/**
+	 * Edit review of user
+	 * 
+	 * @param id - id of review object stored in db
+	 * @param editedReview - dto with info for edited review
+	 * @param userId - id of user object stored in db
+	 * @return Review - newly edited review
+	 * @throws ResourceDoesntExistException - when review ddoes not exist in db or is not the users review to edit
+	 */
+
+	public Review editReview(long id, EditReviewDTO editedReview, long userId) throws ResourceDoesntExistException {
+		Review review = this.reviewRepository.findByUserUserIdAndReviewIdAndIsDeletedIsFalse(userId, id);
+		if (review == null) {
+			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Review doesn't exist or it is not your review");
+		}
+
+		review.setReview(editedReview.getReview());
+		review.setRating(editedReview.getRating());
+		review.setDeleted(editedReview.isDeleted());
+
+		return this.reviewRepository.save(review);
+	}
+	
+	public Review getReviewById(long id,long userId) throws ResourceDoesntExistException {
+		Review review = this.reviewRepository.findByUserUserIdAndReviewIdAndIsDeletedIsFalse(userId, id);
+		if (review == null) {
+			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Review doesn't exist or it is not your review");
+		}
+		return review;
+	}
+	
+	private List<ListReview> getReviewsForProduct(long id) {
+		return this.reviewRepository.findByReviewIdAndIsDeletedIsFalse(id).stream()
+				.map(review -> new ListReview(review.getReviewId(), review.getReview(), review.getRating()))
+				.collect(Collectors.toList());
+	}
+	/**
+	 * Calculate rating for a product
+	 * 
+	 * @param id - id of product object stored in db
+	 * @throws ResourceDoesntExistException - when the product does not exist in db
+	 */
+	private void calculateRating(long id) throws ResourceDoesntExistException {
+		Product p = null;	
+		try {
+				p = this.productRepository.findById(id).get();
+			} catch (NoSuchElementException e) {
+				throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Invalid product");
+			}
+		
+			List<ListReview> reviews = getReviewsForProduct(p.getProductId());
+			if (reviews.isEmpty()) {
+				p.setRating(Double.valueOf(0));
+			} else {
+				int sum = 0;
+				for (ListReview r : reviews) {
+					sum += r.getRating();
+				}
+				Double average = (double) (sum / reviews.size());
+				p.setRating(average);
+			}
+			this.productRepository.save(p);
+		}
+
+
+}
