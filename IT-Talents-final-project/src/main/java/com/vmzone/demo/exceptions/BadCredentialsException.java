@@ -9,10 +9,6 @@ public class BadCredentialsException extends VMZoneException {
 	 * 
 	 */
 	private static final long serialVersionUID = 1421596159044470575L;
-	
-	public BadCredentialsException(HttpStatus statusCode, String message) {
-		super(statusCode, message);
-	}
 
 	public BadCredentialsException() {
 		super();

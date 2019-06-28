@@ -1,8 +1,5 @@
 package com.vmzone.demo.dto;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -21,10 +18,6 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public class RegisterDTO {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long userId;
-
 	@NotBlank(message="first name should not be empty")
 	private String firstName;
 	@NotBlank(message ="last name should not be empty")

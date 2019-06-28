@@ -45,13 +45,13 @@ public class ProductInSaleService {
 	public ProductInSale addProductInSale(AddProductInSaleDTO sale) throws ResourceDoesntExistException {
 		ProductInSale p = this.productInSaleRepository.getProduct(sale.getProductId(), sale.getStartDate(), sale.getEndDate(), sale.getDiscountPercentage());
 		if(p != null) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Product is already in sale for this dates");
+			throw new ResourceDoesntExistException( "Product is already in sale for this dates");
 		}
 		Product prod = null;
 		try {
 			prod = this.productRepository.findById(sale.getProductId()).get();	
 		}catch(NoSuchElementException e) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Product doesn't exist.");
+			throw new ResourceDoesntExistException( "Product doesn't exist.");
 		}
 		
 		prod.setInSale(1);

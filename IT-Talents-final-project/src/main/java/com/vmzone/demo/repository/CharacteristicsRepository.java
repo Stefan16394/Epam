@@ -14,9 +14,8 @@ public interface CharacteristicsRepository extends JpaRepository<Characteristic,
 	
 	@Query(value = "select * from characteristics where product_id = :prodId and value = :value", nativeQuery = true)
 	Characteristic findNameOfCharacteristicForProduct(@Param("prodId") long prodId, @Param("value") String value);
-	
-	@Query(value = "select * from characteristics where product_id = :prodId and characteristics_id = :charactId", nativeQuery = true)
-	Characteristic findCharacteristicForProduct(@Param("prodId") long prodId, @Param("charactId") long charactId);
+
+	Characteristic findByProductProductIdAndCharacteristicsId(long prodId, long charactId);
 	
 	List<Characteristic> findByName(String name);
 

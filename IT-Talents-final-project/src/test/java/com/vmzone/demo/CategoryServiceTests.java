@@ -67,11 +67,10 @@ public class CategoryServiceTests {
 		Category mainCategory = new Category(1L,"Main",null);
 		List<Category> subCategories = new ArrayList<>();
 		subCategories.add(new Category(2L,"SubCat1", mainCategory));
-		subCategories.add(new Category(3L,"SubCat1", mainCategory));
-		subCategories.add(new Category(4L,"SubCat1", null));
-		
-		when(categoryRepository.findAll()).thenReturn(subCategories);
-		List<ListSubCategory> result=categoryService.getSubcategoriesForCategory(mainCategory.getCategoryId());
+		subCategories.add(new Category(3L,"SubCat2", mainCategory));
+
+		when(categoryRepository.findByParentCategoryId(mainCategory.getCategoryId())).thenReturn(subCategories);
+		List<ListSubCategory> result = categoryService.getSubcategoriesForCategory(mainCategory.getCategoryId());
 		final int expected = 2;
 		assertEquals(expected,result.size());
 	}

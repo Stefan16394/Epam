@@ -35,25 +35,22 @@ public class OrderController {
 
 	@PostMapping("/order")
 	public Order createNewOrder(HttpSession session) throws ResourceDoesntExistException, BadRequestException, NotEnoughQuantityException, BadCredentialsException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You are not logged in! You should log in first!");
-		}
+		SessionManager.isAuthenticated(session);
+
 		return this.orderService.createNewOrder(SessionManager.getLoggedUser(session));
 	}
 
 	@GetMapping("/orders")
 	public List<OrderBasicInfo> getAllOrdersForUser(HttpSession session) throws BadCredentialsException, ResourceDoesntExistException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED,"Unauthorized: Access is denied due to invalid credentials.");
-		}
+		SessionManager.isAuthenticated(session);
+
 		return this.orderService.getAllOrdersForUser(SessionManager.getLoggedUser(session));
 	}
 
 	@GetMapping("/order/{id}")
 	public List<OrderDetails> getDetailsForOrderById(@PathVariable long id,HttpSession session) throws BadCredentialsException, ResourceDoesntExistException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED,"You are not logged in! You should log in first!");
-		}
+		SessionManager.isAuthenticated(session);
+
 		return this.orderService.getOrderDetailsById(id,SessionManager.getLoggedUser(session));
 	}
 }

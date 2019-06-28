@@ -51,12 +51,11 @@ public class FileController {
     
     @PostMapping("/uploadFile")
     public UploadFileResponse uploadFile(@RequestParam("file") MultipartFile file, @RequestParam("id") Long id, HttpSession session ) throws ResourceDoesntExistException, BadCredentialsException {
-    	
-    	if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You are not logged in! You should log in first!");
-		}
+
+		SessionManager.isAuthenticated(session);
+
 		if(!SessionManager.isAdmin(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You do not have access to this feature!");
+			throw new BadCredentialsException( "You do not have access to this feature!");
 		}
     	
         String fileName = fileStorageService.storeFile(file, id);
@@ -72,12 +71,11 @@ public class FileController {
 
     @PostMapping("/uploadMultipleFiles")
     public List<UploadFileResponse> uploadMultipleFiles(@RequestParam("files") MultipartFile[] files, @RequestParam("id") Long id, HttpSession session) throws ResourceDoesntExistException, BadCredentialsException {
-       
-    	if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You are not logged in! You should log in first!");
-		}
+
+		SessionManager.isAuthenticated(session);
+
 		if(!SessionManager.isAdmin(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You do not have access to this feature!");
+			throw new BadCredentialsException( "You do not have access to this feature!");
 		}
     	
     	return Arrays.asList(files)
@@ -97,10 +95,10 @@ public class FileController {
     @GetMapping("/downloadFile/{fileName:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request, HttpSession session) throws MalformedURLException, ResourceDoesntExistException, BadCredentialsException {
     	if (session.getAttribute("user") == null) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You are not logged in! You should log in first!");
+			throw new BadCredentialsException( "You are not logged in! You should log in first!");
 		}
 		if(!((User) session.getAttribute("user")).isAdmin()) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You do not have access to this feature!");
+			throw new BadCredentialsException( "You do not have access to this feature!");
 		}
     	
     	// Load file as Resource

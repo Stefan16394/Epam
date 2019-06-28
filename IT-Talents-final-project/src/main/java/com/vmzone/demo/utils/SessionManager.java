@@ -2,6 +2,7 @@ package com.vmzone.demo.utils;
 
 import javax.servlet.http.HttpSession;
 
+import com.vmzone.demo.exceptions.BadCredentialsException;
 import com.vmzone.demo.exceptions.ResourceDoesntExistException;
 import com.vmzone.demo.models.User;
 
@@ -10,7 +11,7 @@ public class SessionManager {
 	private static final String USER = "user";
 
 	public static boolean isUserLoggedIn(HttpSession session) {
-		return  session.getAttribute(USER) !=null;
+		return session.getAttribute(USER) !=null;
 	}
 	
 	public static boolean isAdmin(HttpSession session) {
@@ -30,5 +31,11 @@ public class SessionManager {
 			throw new ResourceDoesntExistException("You are not logged in! You should log in first!");
 		}
 		return ((User) session.getAttribute(USER));
+	}
+
+	public static void isAuthenticated(HttpSession session) throws BadCredentialsException {
+		if(!isUserLoggedIn(session)){
+			throw new BadCredentialsException("You are not logged in! You should log in first!");
+		}
 	}
 }

@@ -34,33 +34,28 @@ public class ReviewController {
 	
 	@PostMapping("/review")
 	public Review addReview(@RequestBody @Valid AddReviewDTO review, HttpSession session) throws BadCredentialsException, ResourceDoesntExistException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You are not logged in! You should log in first!");
-		}
+		SessionManager.isAuthenticated(session);
 		return this.reviewService.addReview(review, SessionManager.getLoggedUserId(session));
 	}
 	
 	@PutMapping("/review/remove/{id}")
 	public void removeReview(@PathVariable long id, HttpSession session) throws ResourceDoesntExistException, BadCredentialsException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You are not logged in! You should log in first!");
-		}
-		 this.reviewService.removeReviewById(id, SessionManager.getLoggedUserId(session));
+		SessionManager.isAuthenticated(session);
+
+		this.reviewService.removeReviewById(id, SessionManager.getLoggedUserId(session));
 	}
-	//not used in requests
+
 	@GetMapping("review/{id}")
 	public Review getReviewById(@PathVariable long id, HttpSession session) throws ResourceDoesntExistException, BadCredentialsException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You are not logged in! You should log in first!");
-		}	
+		SessionManager.isAuthenticated(session);
+
 		return this.reviewService.getReviewById(id, SessionManager.getLoggedUserId(session));
 	}
 	
 	@PutMapping("/review/edit/{id}")
 	public void editReview(@PathVariable long id,@RequestBody @Valid EditReviewDTO review, HttpSession session) throws ResourceDoesntExistException, BadCredentialsException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You are not logged in! You should log in first!");
-		}	
+		SessionManager.isAuthenticated(session);
+
 		this.reviewService.editReview(id, review, SessionManager.getLoggedUserId(session));
 	}
 }

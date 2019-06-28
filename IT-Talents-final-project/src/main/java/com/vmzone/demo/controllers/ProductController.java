@@ -60,12 +60,10 @@ public class ProductController {
 	@PostMapping("/product")
 	public Product addProduct(@RequestBody @Valid AddProductDTO product, HttpSession session)
 			throws ResourceDoesntExistException, BadCredentialsException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED,
-					"You are not logged in! You should log in first!");
-		}
+		SessionManager.isAuthenticated(session);
+
 		if (!SessionManager.isAdmin(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You do not have access to this feature!");
+			throw new BadCredentialsException( "You do not have access to this feature!");
 		}
 
 		return this.productService.addProduct(product);
@@ -75,12 +73,11 @@ public class ProductController {
 	public long addCharacteristicToProduct(@PathVariable("id") Long productId,
 			@RequestBody @Valid AddCharacteristicDTO characteristic, HttpSession session)
 			throws ResourceDoesntExistException, BadCredentialsException, ResourceAlreadyExistsException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED,
-					"You are not logged in! You should log in first!");
-		}
+
+		SessionManager.isAuthenticated(session);
+
 		if (!SessionManager.isAdmin(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You do not have access to this feature!");
+			throw new BadCredentialsException( "You do not have access to this feature!");
 		}
 
 		return this.productService.addCharacteristicForProduct(productId, characteristic);
@@ -89,12 +86,10 @@ public class ProductController {
 	@PostMapping("/product/remove/characteristic")
 	public void removeCharacteristicForProduct(@RequestParam("productId") Long prodId, @RequestParam("characteristicId") Long charId , HttpSession session ) 
 			throws ResourceDoesntExistException, BadCredentialsException, ResourceAlreadyExistsException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED,
-					"You are not logged in! You should log in first!");
-		}
+		SessionManager.isAuthenticated(session);
+
 		if (!SessionManager.isAdmin(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You do not have access to this feature!");
+			throw new BadCredentialsException( "You do not have access to this feature!");
 		}
 
 		this.productService.removeCharacteristicForProduct(prodId, charId);
@@ -108,12 +103,11 @@ public class ProductController {
 	@PutMapping("/product/remove/{id}")
 	public void removeProduct(@PathVariable long id, HttpSession session)
 			throws ResourceDoesntExistException, BadCredentialsException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED,
-					"You are not logged in! You should log in first!");
-		}
+
+		SessionManager.isAuthenticated(session);
+
 		if (!SessionManager.isAdmin(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You do not have access to this feature!");
+			throw new BadCredentialsException("You do not have access to this feature!");
 		}
 		this.productService.removeProductById(id);
 	}
@@ -121,12 +115,11 @@ public class ProductController {
 	@PutMapping("/product/edit/{id}")
 	public Product editProduct(@PathVariable long id, @RequestBody @Valid EditProductDTO product, HttpSession session)
 			throws ResourceDoesntExistException, BadCredentialsException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED,
-					"You are not logged in! You should log in first!");
-		}
+
+		SessionManager.isAuthenticated(session);
+
 		if (!SessionManager.isAdmin(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You do not have access to this feature!");
+			throw new BadCredentialsException( "You do not have access to this feature!");
 		}
 
 		return this.productService.editProduct(id, product);
@@ -157,12 +150,10 @@ public class ProductController {
 
 	@PostMapping("/calculate")
 	public void calculateRating(HttpSession session) throws ResourceDoesntExistException, BadCredentialsException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED,
-					"You are not logged in! You should log in first!");
-		}
+		SessionManager.isAuthenticated(session);
+
 		if (!SessionManager.isAdmin(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You do not have access to this feature!");
+			throw new BadCredentialsException( "You do not have access to this feature!");
 		}
 		this.productService.calculateRating();
 	}
@@ -170,12 +161,10 @@ public class ProductController {
 	@PostMapping("/sale")
 	public ProductInSale addProductInSale(@RequestBody @Valid AddProductInSaleDTO product, HttpSession session)
 			throws VMZoneException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED,
-					"You are not logged in! You should log in first!");
-		}
+		SessionManager.isAuthenticated(session);
+
 		if (!SessionManager.isAdmin(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You do not have access to this feature!");
+			throw new BadCredentialsException( "You do not have access to this feature!");
 		}
 		return this.productInSaleService.addProductInSale(product);
 	}

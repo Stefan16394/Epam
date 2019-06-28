@@ -40,7 +40,7 @@ public class FavouritesService {
                     this.userRepository.findById(id).get());
             return this.favouritesRepository.save(newFav);
         } catch (NoSuchElementException e) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Product or user doesnt exist.");
+            throw new ResourceDoesntExistException( "Product or user doesnt exist.");
         }
     }
 
@@ -57,10 +57,10 @@ public class FavouritesService {
         Favourite fav = this.favouritesRepository.findByUserUserIdAndFavouritesId(userId, id);
 
         if (fav == null) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Favourite doesn't exist");
+            throw new ResourceDoesntExistException( "Favourite doesn't exist");
         }
         if (fav.isDeleted() ) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Favourite has already been deleted");
+            throw new ResourceDoesntExistException( "Favourite has already been deleted");
         }
         fav.setDeleted(true);
         this.favouritesRepository.save(fav);

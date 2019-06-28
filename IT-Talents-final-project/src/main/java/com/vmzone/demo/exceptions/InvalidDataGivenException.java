@@ -10,10 +10,6 @@ public class InvalidDataGivenException extends VMZoneException {
 	 * 
 	 */
 	private static final long serialVersionUID = 7704742948577921747L;
-	
-	public InvalidDataGivenException(HttpStatus statusCode, String message) {
-		super(statusCode, message);
-	}
 
 	public InvalidDataGivenException() {
 		super();

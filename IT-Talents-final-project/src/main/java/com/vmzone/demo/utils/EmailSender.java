@@ -77,7 +77,7 @@ public class EmailSender {
 		   if(RegexValidator.validateEmail(receiver)) {
 			  msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(receiver)); 
 		   } else {
-			   throw new InvalidEmailException(HttpStatus.NOT_ACCEPTABLE, "Incorrect email");
+			   throw new InvalidEmailException( "Incorrect email");
 		   }
 		   
 		   msg.setSubject(subject);

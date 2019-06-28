@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.vmzone.demo.enums.Gender;
 import com.vmzone.demo.models.*;
 import com.vmzone.demo.repository.ShoppingCartRepository;
 import org.junit.Test;
@@ -33,7 +34,7 @@ import com.vmzone.demo.service.UserService;
 public class OrderServiceTests {
     private static final long DEFAULT_ID_TO_SEARCH = 1L;
 
-    private static final User TEST_USER = new User(1L, "User", "User", "user@abv.bg", "1234", "male", 0, null, null,
+    private static final User TEST_USER = new User( "User", "User", "user@abv.bg", "1234", Gender.Male, 0, null, null,
             null, null, 25, false);
 
     private static final Product TEST_PRODUCT = new Product(new Category("Shoes", null), "Product", "Information", 1, 24, 15, 1, "Details");
@@ -87,7 +88,7 @@ public class OrderServiceTests {
         order.setOrderId(DEFAULT_ID_TO_SEARCH);
         when(orderRepository.findByOrderIdAndUser(DEFAULT_ID_TO_SEARCH, TEST_USER)).thenReturn(order);
 
-        when(orderDetailsRepository.getOrderDetailsForOrder(DEFAULT_ID_TO_SEARCH)).thenReturn(orderDetails);
+        when(orderDetailsRepository.findByOrderId(DEFAULT_ID_TO_SEARCH)).thenReturn(orderDetails);
         List<OrderDetails> result = orderService.getOrderDetailsById(DEFAULT_ID_TO_SEARCH, TEST_USER);
         assertEquals(orderDetails.size(), result.size());
     }

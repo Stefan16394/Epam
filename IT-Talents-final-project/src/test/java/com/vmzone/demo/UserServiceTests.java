@@ -2,6 +2,7 @@ package com.vmzone.demo;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 
 import java.io.IOException;
@@ -14,6 +15,7 @@ import java.util.Optional;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
+import com.vmzone.demo.enums.Gender;
 import com.vmzone.demo.models.Category;
 import com.vmzone.demo.models.Product;
 import com.vmzone.demo.models.ShoppingCartItem;
@@ -23,9 +25,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.vmzone.demo.dto.ChangePasswordDTO;
@@ -67,14 +71,14 @@ public class UserServiceTests {
 
 	@Before
 	public void init() {
-		EXPECTED_USER = new User(1L, "Ivan", "Ivanov", EMAIL, PASSWORD, "Male", 0,  null, null, null, null, 25, false);
+		EXPECTED_USER = new User("Ivan", "Ivanov", EMAIL, PASSWORD, Gender.Female, 0,  null, null, null, null, 25, false);
 	}
 
 	@Test(expected = ResourceAlreadyExistsException.class)
 	public void testRegisterUserWithAlreadyExistentUser() throws AddressException, ResourceAlreadyExistsException,
 			InvalidEmailException, SQLException, MessagingException, IOException {
 		when(userRepository.findByEmail(EMAIL)).thenReturn(new User());
-		userService.register(new RegisterDTO(1L, "Ivan", "Ivanov", EMAIL, PASSWORD, "Male", 0));
+		userService.register(new RegisterDTO( "Ivan", "Ivanov", EMAIL, PASSWORD, "Male", 0));
 	}
 
 	@Test
@@ -82,7 +86,7 @@ public class UserServiceTests {
 			InvalidEmailException, SQLException, MessagingException, IOException {
 		when(userRepository.findByEmail(EMAIL)).thenReturn(null);
 		when(bCryptPasswordEncoder.encode(PASSWORD)).thenReturn(PASSWORD);
-		userService.register(new RegisterDTO(1L, "Ivan", "Ivanov", EMAIL, PASSWORD, "Male", 0));
+		userService.register(new RegisterDTO("Ivan", "Ivanov", EMAIL, PASSWORD, "Male", 0));
 	}
 
 	@Test(expected = ResourceDoesntExistException.class)
@@ -119,14 +123,13 @@ public class UserServiceTests {
 		assertEquals(user.getName(), EDITED_USER_DTO.getName());
 		assertEquals(user.getSurname(), EDITED_USER_DTO.getSurname());
 		assertEquals(user.getEmail(), EDITED_USER_DTO.getEmail());
-		assertEquals(user.getGender(), EDITED_USER_DTO.getGender());
+		assertEquals(user.getGender().name(), EDITED_USER_DTO.getGender());
 		assertEquals(user.getIsSubscribed(), EDITED_USER_DTO.getIsSubscribed());
 		assertEquals(user.getPhone(), EDITED_USER_DTO.getPhone());
 		assertEquals(user.getCity(), EDITED_USER_DTO.getCity());
 		assertEquals(user.getPostCode(), EDITED_USER_DTO.getPostCode());
 		assertEquals(user.getAdress(), EDITED_USER_DTO.getAdress());
 		assertEquals(user.getAge(), EDITED_USER_DTO.getAge());
-
 	}
 
 	@Test(expected = ResourceDoesntExistException.class)
@@ -141,7 +144,7 @@ public class UserServiceTests {
 		when(userRepository.findById(1L)).thenReturn(Optional.of(EXPECTED_USER));
 		when(bCryptPasswordEncoder.encode(newPassword)).thenReturn(newPassword);
 		userService.changePassword(1L, new ChangePasswordDTO(newPassword));
-		assertTrue(EXPECTED_USER.getPassword().equals(newPassword));
+		assertEquals(EXPECTED_USER.getPassword(), newPassword);
 	}
 
 	@Test(expected = ResourceDoesntExistException.class)

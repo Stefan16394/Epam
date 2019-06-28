@@ -26,7 +26,6 @@ import com.vmzone.demo.repository.ProductRepository;
  * @author Stefan Rangelov and Sabiha Djurina
  *
  */
-
 @Service
 public class OrderService {
 	@Autowired
@@ -57,7 +56,7 @@ public class OrderService {
 	public Order createNewOrder(User user) throws ResourceDoesntExistException, BadRequestException, NotEnoughQuantityException {
 		List<ShoppingCartItem> items = this.shoppingCartRepository.findByUser(user);
 		if (items.isEmpty()) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "You shopping cart is empty.");
+			throw new ResourceDoesntExistException( "You shopping cart is empty.");
 		}
 		try {
 			Order order = new Order(user);
@@ -65,7 +64,7 @@ public class OrderService {
 			for (ShoppingCartItem item : items) {
 				Product p = productRepository.findById(item.getProduct().getProductId()).get();
 				if(p.getQuantity()<item.getQuantity()) {
-					throw new NotEnoughQuantityException(HttpStatus.BAD_REQUEST,"There is not enough quantity of product with id "+p.getProductId());
+					throw new NotEnoughQuantityException("There is not enough quantity of product with id "+p.getProductId());
 				}
 				p.setQuantity(p.getQuantity()-item.getQuantity());
 				this.productRepository.save(p);
@@ -78,7 +77,7 @@ public class OrderService {
 			throw e;
 		}
 		catch (Exception e) {
-			throw new BadRequestException(HttpStatus.BAD_REQUEST, "Transaction failed.");
+			throw new BadRequestException( "Transaction failed.");
 		}
 	}
 
@@ -92,8 +91,8 @@ public class OrderService {
 	public List<OrderDetails> getOrderDetailsById(long id, User user) throws ResourceDoesntExistException {
 		Order order = this.orderRepository.findByOrderIdAndUser(id, user);
 		if(order == null) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Review doesn't exist or it is not your review");
+			throw new ResourceDoesntExistException("Order doesn't exist or it is not your review");
 		}
-		return this.orderDetailsRepository.getOrderDetailsForOrder(order.getOrderId());
+		return this.orderDetailsRepository.findByOrderId(id);
 	}
 }

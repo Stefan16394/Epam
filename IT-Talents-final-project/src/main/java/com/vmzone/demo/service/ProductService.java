@@ -56,7 +56,7 @@ public class ProductService {
 		try {
 			category = this.categoryRepository.findById(product.getCategoryId()).get();
 		} catch (NoSuchElementException e) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "There is no such category");
+			throw new ResourceDoesntExistException("There is no such category");
 		}
 		
 		Product newProduct = new Product(category, product.getTitle(), product.getInformation(), product.getInStock(),
@@ -87,7 +87,7 @@ public class ProductService {
 
 	public void removeCharacteristicForProduct(long prodId, long charactId) throws ResourceDoesntExistException {
 
-		Characteristic characteristic = this.characteristicRepository.findCharacteristicForProduct(prodId, charactId);
+		Characteristic characteristic = this.characteristicRepository.findByProductProductIdAndCharacteristicsId(prodId, charactId);
 		if (characteristic == null) {
 			throw new ResourceDoesntExistException("There is no such characteristic for this product");
 		}
@@ -164,7 +164,7 @@ public class ProductService {
 		try {
 			product = this.productRepository.findById(id).get();
 		} catch (NoSuchElementException e) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Product doesn't exist");
+			throw new ResourceDoesntExistException("Product doesn't exist");
 		}
 
 		product.setDeleted(true);
@@ -176,14 +176,14 @@ public class ProductService {
 		try {
 			product = this.productRepository.findById(id).get();
 		} catch (NoSuchElementException e) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Product doesn't exist");
+			throw new ResourceDoesntExistException( "Product doesn't exist");
 		}
 
 		Category cat = null;
 		try {
 			cat = this.categoryRepository.findById(editedProduct.getCategoryId()).get();
 		} catch (NoSuchElementException e) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Category doesn't exist");
+			throw new ResourceDoesntExistException( "Category doesn't exist");
 		}
 		product.setCategory(cat);
 		product.setDelivery(editedProduct.getDelivery());
@@ -284,7 +284,7 @@ public class ProductService {
 		List<ListProduct> products = getAllproducts();
 
 		if (products.isEmpty()) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "There are no product");
+			throw new ResourceDoesntExistException( "There are no product");
 		}
 
 		for (ListProduct p : products) {

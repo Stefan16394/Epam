@@ -30,7 +30,6 @@ import com.vmzone.demo.utils.SessionManager;
  * 
  *
  */
-
 @RestController
 public class CategoryController {
 
@@ -44,11 +43,10 @@ public class CategoryController {
 
 	@PostMapping("/category")
 	public Category createCategory(@RequestBody @Valid AddCategoryDTO category, HttpSession session) throws ResourceDoesntExistException, BadCredentialsException, ResourceAlreadyExistsException {
-		if (!SessionManager.isUserLoggedIn(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "You are not logged in! You should log in first!");
-		}
+		SessionManager.isAuthenticated(session);
+
 		if(!SessionManager.isAdmin(session)) {
-			throw new BadCredentialsException(HttpStatus.UNAUTHORIZED,"You do not have access to this feature!");
+			throw new BadCredentialsException("You do not have access to this feature!");
 		}
 		return this.categoryService.createCategory(category);
 	}

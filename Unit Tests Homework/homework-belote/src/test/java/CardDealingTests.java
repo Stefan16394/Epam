@@ -71,4 +71,10 @@ public class CardDealingTests {
 
         Assertions.assertFalse(this.deck.getCards().contains(card));
     }
+
+    @Test
+    public void test(){
+        Player player = Mockito.mock(Player.class);
+//        Mockito.when(player.addCard(org.mockito.ArgumentMatchers.any(Card.class))).thenReturn(null);
+    }
 }

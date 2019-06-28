@@ -10,11 +10,6 @@ public class ResourceAlreadyExistsException extends VMZoneException {
 	 * 
 	 */
 	private static final long serialVersionUID = -4903742619812640717L;
-	
-
-	public ResourceAlreadyExistsException(HttpStatus statusCode, String message) {
-		super(statusCode, message);
-	}
 
 	public ResourceAlreadyExistsException() {
 		super();

@@ -1,6 +1,8 @@
 package com.vmzone.demo.service;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,7 +27,7 @@ import com.vmzone.demo.repository.CategoryRepository;
 public class CategoryService {
 
     @Autowired
-    public CategoryRepository categoryRepository;
+    private CategoryRepository categoryRepository;
 
     public List<ListCategory> getAllMainCategories() {
 
@@ -49,8 +51,8 @@ public class CategoryService {
     }
 
     public List<ListSubCategory> getSubcategoriesForCategory(long id) {
-        return this.categoryRepository.findAll().stream()
-                .filter(cat -> cat.getParent() != null && cat.getParent().getCategoryId().equals(id))
+        return this.categoryRepository.findByParentCategoryId(id)
+                .stream()
                 .map(subCat -> new ListSubCategory(subCat.getCategoryId(), subCat.getName()))
                 .collect(Collectors.toList());
     }
@@ -66,16 +68,15 @@ public class CategoryService {
         List<ListFinalSubCategories> subCats = new ArrayList<>();
         for (Category c : categories) {
             Category parent = c.getParent();
-            List<String> paths = new ArrayList<>();
+            Deque<String> paths = new ArrayDeque<String>();
             while (parent != null) {
-                paths.add(parent.getName());
+                paths.push(parent.getName());
                 parent = parent.getParent();
             }
-            paths.add(c.getName());
+            paths.addLast(c.getName());
+
             subCats.add(new ListFinalSubCategories(c.getCategoryId(), String.join(" -> ", paths)));
         }
         return subCats;
     }
-
-
 }

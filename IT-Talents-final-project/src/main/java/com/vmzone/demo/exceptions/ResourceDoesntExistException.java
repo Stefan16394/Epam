@@ -36,14 +36,4 @@ public class ResourceDoesntExistException extends VMZoneException{
 		super(cause);
 		// TODO Auto-generated constructor stub
 	}
-
-	public ResourceDoesntExistException(HttpStatus statusCode, String message) {
-		super(statusCode, message);
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-
-	
-
 }

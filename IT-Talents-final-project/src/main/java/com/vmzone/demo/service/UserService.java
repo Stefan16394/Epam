@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
+import com.vmzone.demo.enums.Gender;
 import com.vmzone.demo.models.ShoppingCartItem;
 import com.vmzone.demo.repository.ShoppingCartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,26 +65,26 @@ public class UserService {
             InvalidEmailException, MessagingException, IOException {
         User u = this.userRepository.findByEmail(user.getEmail());
         if (u != null) {
-            throw new ResourceAlreadyExistsException(HttpStatus.CONFLICT,
+            throw new ResourceAlreadyExistsException(
                     "There is already an account with this email address " + u.getEmail());
         }
         String hashedPassword = bCryptPasswordEncoder.encode(user.getPassword());
 
-        User newUser = new User(user.getUserId(), user.getFirstName(), user.getLastName(), user.getEmail(),
-                hashedPassword, user.getGender(), user.getIsSubscribed(), null, null, null, null, 0, false);
+        User newUser = new User(user.getFirstName(), user.getLastName(), user.getEmail(),
+                hashedPassword, Gender.valueOf(user.getGender()), user.getIsSubscribed(), null, null, null, null, 0, false);
         EmailSender.registration(user.getEmail());
 
-        return this.userRepository.save(newUser);
+         return this.userRepository.save(newUser);
     }
 
     public User login(LoginDTO loginDTO) throws ResourceDoesntExistException, BadCredentialsException {
         User user = this.userRepository.findByEmail(loginDTO.getEmail());
         if (user == null) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "User doesn't exist");
+            throw new ResourceDoesntExistException( "User doesn't exist");
         }
         boolean passwordsMatch = bCryptPasswordEncoder.matches(loginDTO.getPassword(), user.getPassword());
         if (!passwordsMatch) {
-            throw new BadCredentialsException(HttpStatus.UNAUTHORIZED, "Incorrect email or password");
+            throw new BadCredentialsException( "Incorrect email or password");
         }
         return user;
     }
@@ -104,21 +105,21 @@ public class UserService {
         try {
             u = this.userRepository.findById(id).get();
         } catch (NoSuchElementException e) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "User doesn't exist");
+            throw new ResourceDoesntExistException( "User doesn't exist");
         }
         if (u.isDeleted()) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "User has been deleted");
+            throw new ResourceDoesntExistException( "User has been deleted");
         }
         User check = this.userRepository.findByEmail(user.getEmail());
 
         if (check != null && !u.equals(check)) {
-            throw new ResourceAlreadyExistsException(HttpStatus.CONFLICT, "There is already a user with this email!");
+            throw new ResourceAlreadyExistsException( "There is already a user with this email!");
         }
 
         u.setName(user.getName());
         u.setSurname(user.getSurname());
         u.setEmail(user.getEmail());
-        u.setGender(user.getGender());
+        u.setGender(Gender.valueOf(user.getGender()));
         u.setIsSubscribed(user.getIsSubscribed());
         u.setPhone(user.getPhone());
         u.setCity(user.getCity());
@@ -128,7 +129,6 @@ public class UserService {
 
         this.userRepository.save(u);
         return u;
-
     }
 
     public void changePassword(long id, ChangePasswordDTO pass) throws ResourceDoesntExistException {
@@ -136,10 +136,10 @@ public class UserService {
         try {
             u = this.userRepository.findById(id).get();
         } catch (NoSuchElementException e) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "User doesn't exist");
+            throw new ResourceDoesntExistException( "User doesn't exist");
         }
         if (u.isDeleted()) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "User has been deleted");
+            throw new ResourceDoesntExistException( "User has been deleted");
         }
 
         String hashedPassword = bCryptPasswordEncoder.encode(pass.getPassword());
@@ -163,7 +163,7 @@ public class UserService {
         User u = this.userRepository.findByEmail(email);
 
         if (u == null || u.isDeleted()) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "User doesn't exist");
+            throw new ResourceDoesntExistException( "User doesn't exist");
         }
 
         String newPass = PasswordGenerator.makePassword(LENGTH_FOR_FORGOTTEN_PASSWORD);
@@ -187,10 +187,10 @@ public class UserService {
         try {
             u = this.userRepository.findById(id).get();
         } catch (NoSuchElementException e) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "User doesn't exist");
+            throw new ResourceDoesntExistException( "User doesn't exist");
         }
         if (u.isDeleted()) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "User has been deleted");
+            throw new ResourceDoesntExistException( "User has been deleted");
         }
         u.setDeleted(true);
         this.userRepository.save(u);
@@ -200,7 +200,7 @@ public class UserService {
     public void contactUs(ContactUsDTO contact)
             throws InvalidEmailException, AddressException, MessagingException, IOException {
         if (!RegexValidator.validateEmail(contact.getEmail())) {
-            throw new InvalidEmailException(HttpStatus.UNAUTHORIZED, "Incorrect email or password");
+            throw new InvalidEmailException( "Incorrect email or password");
         }
 
         EmailSender.contactUs(contact.toString());
@@ -232,14 +232,14 @@ public class UserService {
         try {
             p = this.productRepository.findById(addProduct.getProductId()).get();
         } catch (NoSuchElementException e) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Product doesn't exist");
+            throw new ResourceDoesntExistException( "Product doesn't exist");
         }
         if (p.getQuantity() < addProduct.getQuantity()) {
-            throw new NotEnoughQuantityException(HttpStatus.BAD_REQUEST,
+            throw new NotEnoughQuantityException(
                     "There is not enough quantity of this product! Try with less or add it to you cart later.");
         }
         if (p.isDeleted()) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Product has been deleted");
+            throw new ResourceDoesntExistException( "Product has been deleted");
         }
 
         this.shoppingCartRepository.save(new ShoppingCartItem(p, user, addProduct.getQuantity()));
@@ -262,20 +262,20 @@ public class UserService {
         try {
             p = this.productRepository.findById(editProduct.getProductId()).get();
         } catch (NoSuchElementException e) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Product doesn't exist");
+            throw new ResourceDoesntExistException( "Product doesn't exist");
         }
         List<ShoppingCartItem> items = this.shoppingCartRepository.findByUser(user);
         boolean isInShoppingCart = items.stream().anyMatch(i -> i.getProduct().getProductId().equals(p.getProductId()));
 
         if (!isInShoppingCart) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Product doesn't exist in your cart.");
+            throw new ResourceDoesntExistException( "Product doesn't exist in your cart.");
         }
         if (p.getQuantity() < editProduct.getQuantity()) {
-            throw new NotEnoughQuantityException(HttpStatus.BAD_REQUEST,
+            throw new NotEnoughQuantityException(
                     "There is not enough quantity of this product! Try with less or add it to you cart later.");
         }
         if (p.isDeleted()) {
-            throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Product has been deleted");
+            throw new ResourceDoesntExistException("Product has been deleted");
         }
         // TO DO
         ShoppingCartItem item = items.stream().filter(i->i.getProduct().getProductId().equals(editProduct.getProductId())).findFirst().get();
@@ -285,7 +285,6 @@ public class UserService {
     }
 
     public void deleteProductInCart(long productId, User user) {
-        this.shoppingCartRepository.deleteByUserAndProductProductId(user,productId);
+        this.shoppingCartRepository.deleteByUserAndProductProductId(user, productId);
     }
-
 }

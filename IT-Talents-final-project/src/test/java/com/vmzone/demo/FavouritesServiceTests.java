@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import com.vmzone.demo.enums.Gender;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -32,7 +33,7 @@ import com.vmzone.demo.service.FavouritesService;
 @SpringBootTest
 public class FavouritesServiceTests {
 
-	private static final User TEST_USER = new User(1L, "User", "User", "user@abv.bg", "1234", "male", 0,  null, null, null, null, 25, false);
+	private static final User TEST_USER = new User("User", "User", "user@abv.bg", "1234", Gender.Male, 0,  null, null, null, null, 25, false);
 
 	private static final Product TEST_PRODUCT = new Product(new Category("Shoes",null), "Product", "Information", 1, 24, 20, 1, "Details");
 

@@ -10,10 +10,6 @@ public class NotEnoughQuantityException extends VMZoneException {
 	 * 
 	 */
 	private static final long serialVersionUID = -7963296352857471486L;
-	
-	public NotEnoughQuantityException(HttpStatus statusCode, String message) {
-		super(statusCode, message);
-	}
 
 	public NotEnoughQuantityException() {
 		super();

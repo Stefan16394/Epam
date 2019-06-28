@@ -1,16 +1,10 @@
 package com.vmzone.demo.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import com.vmzone.demo.enums.Gender;
+import lombok.*;
 
 @Entity
 @Table(name="users")
@@ -18,7 +12,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-
+@AllArgsConstructor
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,8 +25,9 @@ public class User {
     private String email;
     
 	private String password;
-    
-	private String gender;
+
+	@Enumerated(EnumType.STRING)
+	private Gender gender;
     
 	private int isAdmin;
     
@@ -44,10 +39,10 @@ public class User {
     private String adress;
     private int age;
     private boolean isDeleted;
-	public User(Long userId, String name, String surname, String email, String password, String gender,
+
+	public User(String name, String surname, String email, String password, Gender gender,
 			int isSubscribed, String phone, String city, String postCode, String adress, int age, boolean isDeleted) {
 		super();
-		this.userId = userId;
 		this.name = name;
 		this.surname = surname;
 		this.email = email;
@@ -61,7 +56,26 @@ public class User {
 		this.age = age;
 		this.isDeleted = isDeleted;
 	}
-	
+
+//	public User(Long id,String name, String surname, String email, String password, Gender gender,
+//				int isSubscribed, String phone, String city, String postCode, String adress, int age, boolean isDeleted) {
+//		super();
+//		this.userId = id;
+//		this.name = name;
+//		this.surname = surname;
+//		this.email = email;
+//		this.password = password;
+//		this.gender = gender;
+//		this.isSubscribed = isSubscribed;
+//		this.phone = phone;
+//		this.city = city;
+//		this.postCode = postCode;
+//		this.adress = adress;
+//		this.age = age;
+//		this.isDeleted = isDeleted;
+//	}
+
+
 	public boolean isAdmin() {
 		return this.getIsAdmin() == 1;
 	}

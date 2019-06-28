@@ -44,14 +44,14 @@ public class ReviewService {
 			calculateRating(review.getProductId());
 			return rev;
 		} catch (NoSuchElementException e) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Invalid product or user");
+			throw new ResourceDoesntExistException( "Invalid product or user");
 		}
 	}
 
 	public void removeReviewById(long id, long userId) throws ResourceDoesntExistException {
 		Review review = this.reviewRepository.findByUserUserIdAndReviewIdAndIsDeletedIsFalse(userId, id);
 		if (review == null) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Review doesn't exist or it is not your review");
+			throw new ResourceDoesntExistException( "Review doesn't exist or it is not your review");
 		}
 		review.setDeleted(true);
 		this.reviewRepository.save(review);
@@ -70,7 +70,7 @@ public class ReviewService {
 	public Review editReview(long id, EditReviewDTO editedReview, long userId) throws ResourceDoesntExistException {
 		Review review = this.reviewRepository.findByUserUserIdAndReviewIdAndIsDeletedIsFalse(userId, id);
 		if (review == null) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Review doesn't exist or it is not your review");
+			throw new ResourceDoesntExistException( "Review doesn't exist or it is not your review");
 		}
 
 		review.setReview(editedReview.getReview());
@@ -83,7 +83,7 @@ public class ReviewService {
 	public Review getReviewById(long id,long userId) throws ResourceDoesntExistException {
 		Review review = this.reviewRepository.findByUserUserIdAndReviewIdAndIsDeletedIsFalse(userId, id);
 		if (review == null) {
-			throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Review doesn't exist or it is not your review");
+			throw new ResourceDoesntExistException( "Review doesn't exist or it is not your review");
 		}
 		return review;
 	}
@@ -104,7 +104,7 @@ public class ReviewService {
 		try {
 				p = this.productRepository.findById(id).get();
 			} catch (NoSuchElementException e) {
-				throw new ResourceDoesntExistException(HttpStatus.NOT_FOUND, "Invalid product");
+				throw new ResourceDoesntExistException( "Invalid product");
 			}
 		
 			List<ListReview> reviews = getReviewsForProduct(p.getProductId());

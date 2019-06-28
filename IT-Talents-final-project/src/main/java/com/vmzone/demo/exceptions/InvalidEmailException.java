@@ -10,10 +10,6 @@ public class InvalidEmailException extends VMZoneException{
 	 * 
 	 */
 	private static final long serialVersionUID = 2566145594761560805L;
-	
-	public InvalidEmailException(HttpStatus statusCode, String message) {
-		super(statusCode, message);
-	}
 
 	public InvalidEmailException() {
 		super();

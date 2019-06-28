@@ -17,12 +17,6 @@ public class BadRequestException extends VMZoneException {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BadRequestException(HttpStatus statusCode, String message) {
-		super(statusCode, message);
-		// TODO Auto-generated constructor stub
-	}
-	
-
 	public BadRequestException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 		// TODO Auto-generated constructor stub
