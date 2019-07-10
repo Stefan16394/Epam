@@ -50,8 +50,7 @@ public class ReviewServiceTests {
 	@Test(expected = ResourceDoesntExistException.class)
 	public void testEditReviewByIdByWhenReviewIsNotFound() throws ResourceDoesntExistException {
 		when(reviewRepository.findByUserUserIdAndReviewIdAndIsDeletedIsFalse(DEFAULT_ID_TO_SEARCH,DEFAULT_ID_TO_SEARCH)).thenReturn(null);
-		EditReviewDTO e = TEST_EDIT_REVIEW_OBJECT;
-		reviewService.editReview(DEFAULT_ID_TO_SEARCH, e,DEFAULT_ID_TO_SEARCH);
+		reviewService.editReview(DEFAULT_ID_TO_SEARCH, TEST_EDIT_REVIEW_OBJECT,DEFAULT_ID_TO_SEARCH);
 	}
 
 	@Test

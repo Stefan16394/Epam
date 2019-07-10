@@ -12,7 +12,6 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 public class ListProductsInSale {
-
 	private String title;
 	private String information;
 	private LocalDateTime startDate;

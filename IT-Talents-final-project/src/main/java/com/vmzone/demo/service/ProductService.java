@@ -208,7 +208,6 @@ public class ProductService {
 						e.printStackTrace();
 						return null;
 					}
-
 				}).collect(Collectors.toList());
 	}
 
